@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --color-primary: #007bff;       /* สีหลัก (น้ำเงิน) */
+    --color-secondary: #0056b3;     /* สีหลักเข้ม */
+    --color-success: #28a745;       /* สีสำเร็จ (เขียว) สำหรับ Progress Bar */
+    --color-bg-light: #f4f7f9;
+    --color-white: #ffffff;
+    --color-text-dark: #333;
+    --color-text-muted: #6c757d;
+    --color-border-light: #cce5ff;
+    
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-xxl: 50px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    min-height: 100vh;
+}
+
+/* --- Navbar (เหมือน Foundation เป๊ะๆ) --- */
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* ชิดขวาตามที่ขอ */
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-border-light);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-size: 18px;
+    margin-left: 25px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    position: relative;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--color-secondary);
+}
+
+/* Active Page Style */
+.nav-links .current-page {
+    color: #ff9900;
+    font-weight: 700;
+}
+
+.nav-links .current-page:hover {
+    color: #ff9900;
+    cursor: default;
+}
+
+/* Badge 'New' */
+.new-badge {
+    background-color: #ffe5e5; 
+    color: #cc0000; 
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 4px;
+    position: absolute;
+    top: -12px;
+    right: -25px; 
+    text-transform: uppercase;
+}
+
+/* --- Campaign Layout --- */
+.campaign-container {
+    padding: var(--spacing-xxl) var(--spacing-xl);
+    padding-top: 100px; /* เว้นที่ให้ Navbar */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.campaign-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-xxl);
+    font-weight: 700;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Grid อัตโนมัติ */
+    gap: var(--spacing-lg);
+}
+
+/* --- Campaign Card Design --- */
+.campaign-card {
+    background: var(--color-white);
+    border-radius: 12px;
+    overflow: hidden; /* เพื่อให้มุมโค้งตัดรูป */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border-light);
+}
+
+.campaign-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ส่วนหัวการ์ด (ใส่สี Gradient แทนรูปภาพ) */
+.card-header {
+    height: 140px;
+    background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.card-body {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* ดันปุ่มไปล่างสุด */
+}
+
+.camp-title {
+    margin: 0 0 5px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.camp-org {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* --- Progress Bar Section --- */
+.progress-container {
+    margin: 15px 0;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.progress-bar-bg {
+    background-color: #e9ecef;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    background-color: var(--color-success); /* สีเขียว */
+    height: 100%;
+    width: 0%; /* เริ่มต้น 0, JS จะมาแก้ */
+    transition: width 0.6s ease-in-out;
+    border-radius: 5px;
+}
+
+/* --- Stat Grid (เป้าหมาย & เวลา) --- */
+.stat-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    font-weight: 700;
+}
+
+/* --- Donate Button --- */
+.donate-btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: auto; /* ดันปุ่มติดขอบล่าง */
+}
+
+.donate-btn:hover {
+    background-color: var(--color-secondary);
+}
+
+.donate-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+    .campaign-container {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    .campaign-container {
+        padding-top: 80px;
+    }
+    .card-grid {
+        grid-template-columns: 1fr; /* มือถือแสดงแถวเดียว */
+        padding: 0 20px;
+    }
+    .navbar {
+        justify-content: center; /* มือถือให้เมนูอยู่ตรงกลาง */
+    }
+}
+
+#loadingMessage {
+    text-align: center;
+    width: 100%;
+    /* สั่งให้กินพื้นที่ตั้งแต่เส้นคอลัมน์ที่ 1 จนถึงเส้นสุดท้าย (-1) */
+    grid-column: 1 / -1; 
+    color: #666;
+    margin-top: 50px;
+    font-size: 1.2rem;
+}

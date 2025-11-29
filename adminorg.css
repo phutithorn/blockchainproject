@@ -1,0 +1,167 @@
+/* --- Global Reset and Organization Theme --- */
+.org-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a2e; /* Dark background (Same as Admin) */
+    color: #e4e6eb; /* Light text color */
+    margin: 0;
+    padding: 0;
+}
+
+.org-header {
+    background-color: #00bcd4; /* Cyan/Teal header (Different from Admin Blue) */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.org-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #ffffff; /* White title */
+}
+
+.back-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.back-link:hover {
+    background-color: #0097a7;
+}
+
+.org-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #2e354f; /* Container background (Same as Admin) */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+    color: #1abc9c; /* Mint Green highlight for main title (Different from Admin Green) */
+    border-bottom: 2px solid #1abc9c;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* --- Control Groups and Status --- */
+.control-group {
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 1px solid #4a4e69;
+    border-radius: 5px;
+}
+
+.org-connect-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1b263b; /* Dark status bar background */
+    padding: 15px; /* Added padding here for better spacing */
+}
+
+.status-message {
+    font-weight: bold;
+}
+
+/* --- Inputs and Buttons (Adopted/Modified from Admin) --- */
+.text-input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #4a4e69;
+    background-color: #3b4257;
+    color: #e4e6eb;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.text-input::placeholder {
+    color: #9a9ea7;
+}
+
+.success-btn {
+    background-color: #2ecc71; /* Brighter Green for creating campaigns/success */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+.success-btn:hover {
+    background-color: #27ae60;
+}
+
+.danger-btn {
+    background-color: #e74c3c; /* Red for Withdraw/Action (Different red from Admin) */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+.danger-btn:hover {
+    background-color: #c0392b;
+}
+
+/* --- Organization Specific Functions Area --- */
+#orgFunctions {
+    padding-top: 5px;
+}
+
+.org-function-box {
+    background-color: #3b4257; /* Darker box background */
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.org-function-box h4 {
+    color: #f1c40f; /* Amber/Yellow highlight for function titles */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.message-status {
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.balance-display {
+    font-weight: 700;
+    color: #2ecc71; /* Green for displaying balance */
+}
+
+/* Style for displaying individual campaigns */
+#campaignList {
+    margin-top: 15px;
+}
+
+.campaign-card {
+    background-color: #1a1a2e; 
+    border-left: 4px solid #3498db; /* Blue accent for visual hierarchy */
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+.campaign-card strong {
+    color: #f1c40f; 
+    display: block;
+    margin-bottom: 5px;
+}

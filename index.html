@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ระบบบริจาคเงินให้มูลนิธิ</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js"></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <nav class="nav-links">
+            <a href="home.html">หน้าหลัก</a>
+            <a href="campaign.html">M&P ระดมทุน <span class="new-badge">New</span></a>
+            <a href="foundation.html">มูลนิธิ</a>
+            <a href="#">ติดต่อ</a>
+            <a href="#">ข้อมูลข่าวสาร</a>
+        </nav>
+    </header>
+    
+    <div class="main-wrapper">
+        <h2>บริจาคเงินให้มูลนิธิ</h2>
+
+        <div class="control-group">
+            <button id="connectBtn">Connect Wallet</button>
+            <p id="walletAddress">Wallet: -</p>
+        </div>
+
+        <div class="control-group">
+            <h3>ซื้อเหรียญสำหรับบริจาค</h3>
+            <div class="action-group">
+                <input id="buyAmount" placeholder="Amount to buy" type="number">
+                <button id="buyBtn">Buy</button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <h3>บริจาคเหรียญให้มูลนิธิ (General Donation)</h3>
+            <div class="action-group">
+                <input id="donateAmount" placeholder="Amount to donate" type="number">
+
+                <div id="selectedOrgDisplay" style="flex-grow: 1;">
+                    <select id="donateOrg" style="width: 100%;"> 
+                        <option value="" disabled selected>⏳ กำลังโหลดรายชื่อ...</option>
+                    </select>
+
+                    <div id="lockedOrgName" class="locked-input-display" style="display: none;">
+                        โปรดเลือกมูลนิธิ
+                    </div>
+                </div>
+
+                <button id="donateBtn">Donate</button>
+            </div>
+        </div>
+
+        <div class="control-group" style="border-top: 2px dashed #eee; padding-top: 20px; margin-top: 20px;">
+            <h3>บริจาคให้โครงการระดมทุน (Campaign)</h3>
+            <div class="action-group">
+                <select id="campaignSelect" style="flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                    <option value="" disabled selected>⏳ กำลังโหลดรายชื่อโครงการ...</option>
+                </select>
+
+                <input id="donateCampaignAmount" placeholder="Amount" type="number" style="width: 150px;">
+                <button id="donateCampaignBtn" style="background-color: #e67e22; color: white;">Donate to Campaign</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+</body>
+</html>

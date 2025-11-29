@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap'); /* เปลี่ยนไปใช้ Prompt และเพิ่มน้ำหนัก Light (300) */
+
+/* ----- Custom Properties (Variables) for Easy Theming (Simplified) ----- */
+:root {
+    --color-primary: #007bff;
+    --color-secondary: #0056b3;
+    --color-bg-light: #f4f7f9;
+    --color-white: #ffffff;
+    --color-text-dark: #333;
+    --color-border-light: #cce5ff;
+    --spacing-xl: 30px;
+    --spacing-xxl: 50px;
+    --spacing-lg: 20px; /* เพิ่ม spacing-lg สำหรับ gap ใน Card */
+}
+
+/* ------------------- BASE STYLES & LAYOUT ------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Prompt', sans-serif; /* เปลี่ยนฟอนต์หลักเป็น Prompt */
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    display: block;
+    min-height: 100vh;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px var(--spacing-xl);
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-border-light);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-size: 18px; 
+    margin-left: 25px; 
+    padding: 10px 15px;
+    position: relative;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--color-secondary);
+}
+
+.nav-links .current-page {
+    color: #ff9900;
+    font-weight: 700;
+}
+
+.nav-links .current-page:hover {
+    color: #ff9900;
+    cursor: default;
+}
+
+.new-badge {
+    background-color: #ffe5e5; 
+    color: #cc0000; 
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 4px;
+    position: absolute;
+    top: -12px;
+    right: -25px; 
+    text-transform: uppercase;
+}
+
+/* ------------------- SECTION 1: HERO SECTION ------------------- */
+.hero-section {
+    position: relative;
+    min-height: 100vh; 
+    
+    /* จัดเรียงองค์ประกอบทั้งหมดให้อยู่กึ่งกลางหน้าจอ */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    padding-top: 80px; 
+    padding-bottom: var(--spacing-xxl);
+    text-align: center;
+    background-color: var(--color-white);
+    
+    /* เพิ่มพื้นที่ว่างด้านบนและล่างภาพใหญ่ */
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+}
+
+.main-image {
+    /* ทำให้รูปภาพใหญ่ขึ้นและขยายเต็มความกว้าง */
+    max-width: 1500px; /* จำกัดความกว้างสูงสุด */
+    width: 100%; /* ใช้ความกว้างเต็มพื้นที่ที่มี */
+    height: auto;
+    margin-bottom: var(--spacing-xl); 
+    
+    /* ลบสไตล์วงกลมออกเพื่อให้แสดงผลแบบสี่เหลี่ยมตามปกติ */
+    border-radius: 0; 
+    object-fit: cover;
+    border: none; /* ลบขอบ */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* เน้นเงาให้ดูมีมิติ */
+}
+
+.main-text {
+    color: var(--color-primary);
+    font-size: 24px; 
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-xl);
+    max-width: 800px; /* จำกัดความกว้างของข้อความ */
+}
+
+.cta-button {
+    text-decoration: none;
+    background-color: var(--color-primary); 
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px 45px;
+    border-radius: 8px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background-color: var(--color-secondary);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    color: var(--color-primary);
+    opacity: 0.7;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+
+.content-section {
+    background-color: var(--color-bg-light);
+    padding: var(--spacing-xxl) var(--spacing-xl);
+    text-align: center;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-xxl);
+    font-weight: 700;
+}
+
+.mission-cards {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    max-width: 1200px; /* ปรับกลับเป็น 1200px เพื่อให้ Card มีขอบเขตในการขยาย */
+    margin: 0 auto;
+}
+
+.mission-cards .card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border-light);
+    border-radius: 10px;
+    /* เพิ่ม padding: var(--spacing-lg); กลับมา */
+    padding: var(--spacing-lg); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* กำหนด flex-basis ให้มีขนาดเล็กลง เพื่อแก้ปัญหาข้อความล้น */
+    flex: 1 1 290px; 
+    min-width: 250px;
+    text-align: left; /* ปรับกลับเป็น left เพื่อให้อ่านง่าย */
+}
+
+.mission-cards .card h3 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.mission-cards .card p {
+    /* ลดขนาด font-size เพื่อแก้ปัญหาข้อความล้น */
+    font-size: 0.9rem; 
+    /* ลด line-height เพื่อประหยัดพื้นที่แนวตั้ง */
+    line-height: 1.5; 
+    color: var(--color-text-dark);
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+    .main-text {
+        font-size: 20px;
+        max-width: 90%;
+    }
+    .main-image {
+        max-width: 90%;
+    }
+}

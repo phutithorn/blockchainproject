@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&P ระดมทุน - โครงการทั้งหมด</title>
+    
+    <link rel="stylesheet" href="campaign.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js"></script>
+    <script type="module" src="./abi.js"></script> 
+</head>
+
+<body>
+
+    <header class="navbar">
+        <nav class="nav-links">
+            <a href="home.html">หน้าหลัก</a>
+            <a href="campaign.html" class="current-page">M&P ระดมทุน <span class="new-badge">New</span></a>
+            <a href="foundation.html">มูลนิธิ</a>
+            <a href="#">ติดต่อ</a>
+            <a href="#">ข้อมูลข่าวสาร</a>
+        </nav>
+    </header>
+
+    <main class="campaign-container">
+        <h2>โครงการระดมทุนทั้งหมด</h2>
+
+        <div class="card-grid" id="campaignCardGrid">
+            <p id="loadingMessage">⏳ กำลังโหลดโครงการระดมทุน...</p>
+        </div>
+    </main>
+
+    <script type="module" src="./campaign.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-bg: #f0f4ff;
+    --card-bg: #ffffff; 
+    --card-border: #cce5ff; 
+    --input-bg: #e6f7ff; 
+    --input-border: #a0d8ff; 
+    --text-light: #333; 
+    --text-medium: #555; 
+    --neon-pink-light: rgba(0, 123, 255, 0.2); 
+    --neon-pink-strong: #007bff; 
+    --btn-gradient-start: #007bff; 
+    --btn-gradient-end: #0056b3; 
+    --focus-border: #007bff;
+    --focus-shadow: rgba(0, 123, 255, 0.4);
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px; 
+    --spacing-xl: 30px;
+    --spacing-xxl: 40px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background: var(--primary-bg); 
+    color: var(--text-light); 
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 600px;
+    background: var(--card-bg); 
+    border-radius: 12px;
+    padding: var(--spacing-xxl); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    border: 1px solid var(--card-border);
+    box-sizing: border-box;
+    
+    margin: 100px auto 30px auto; 
+}
+
+h2 {
+    text-align: center;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: var(--neon-pink-strong); 
+    text-shadow: none; 
+    margin-top: 0; 
+    margin-bottom: var(--spacing-xxl); 
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.control-group {
+    background: var(--input-bg); 
+    border-radius: 10px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); 
+    border: 1px solid var(--card-border);
+}
+
+h3, h4 {
+    color: var(--text-light); 
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+h4 {
+    margin-top: var(--spacing-md);
+    color: var(--focus-border); 
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: var(--spacing-sm);
+}
+
+button {
+    background: var(--btn-gradient-start); 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 0;
+    
+    /* แก้ไข: จำกัดความกว้างปุ่มให้น้อยลง เพื่อเพิ่มพื้นที่ให้ชื่อมูลนิธิ */
+    max-width: 120px; 
+    flex-shrink: 0;
+    
+    transition: background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); 
+}
+
+button:hover {
+    background: var(--btn-gradient-end); 
+    transform: none; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* ปรับปุ่ม Donate ให้เล็กพอดี */
+#donateBtn {
+    padding: 10px 12px; 
+    font-size: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+    box-sizing: border-box;
+    height: 40px;
+    background-color: var(--card-bg); 
+    color: var(--text-light); 
+}
+.navbar {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    padding: 15px var(--spacing-xl);
+    background-color: var(--card-bg); 
+    color: var(--text-medium);
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--card-border); 
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--btn-gradient-start); 
+    font-size: 18px; 
+    margin-left: 25px; 
+    padding: 10px 15px;
+    position: relative;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--btn-gradient-end); 
+}
+/* ---------------------------------------------------- */
+
+.new-badge {
+    background-color: #ffe5e5; 
+    color: #cc0000; 
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 4px;
+    position: absolute;
+    top: -12px;
+    right: -25px; 
+    text-transform: uppercase;
+}
+
+input:focus, select:focus {
+    border-color: var(--focus-border);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem var(--focus-shadow);
+}
+
+.action-group {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin-top: 0; 
+    margin-bottom: 0; 
+}
+
+.action-group input, .action-group select {
+    flex-grow: 1;
+}
+
+/* ***** สไตล์ใหม่สำหรับ Locked Input (แสดงชื่อมูลนิธิ) ***** */
+.locked-input-display {
+    padding: 10px;
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+    
+    /* สไตล์สำหรับการแสดงผลที่ถูก Lock */
+    background-color: var(--input-bg);
+    border: 2px solid var(--neon-pink-strong);
+    color: var(--neon-pink-strong);
+    
+    /* ปรับขนาดฟอนต์ให้เล็กพอดีกับช่อง 40px */
+    font-size: 0.9em; 
+    font-weight: 700; 
+    
+    /* จัดกึ่งกลางข้อความ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* *** แก้ไข: อนุญาตให้ข้อความไม่ขึ้นบรรทัดใหม่ และซ่อนส่วนที่เกิน *** */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; /* เพิ่มจุดสามจุดถ้าข้อความยาวเกิน */
+    
+    cursor: default;
+    flex-grow: 1; 
+}
+/* ****************************************************** */
+
+
+#walletAddress {
+    font-size: 15px;
+    background: var(--card-bg); 
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 6px;
+    border: 1px solid var(--input-border);
+    margin-top: var(--spacing-sm);
+    margin-bottom: 0;
+    color: var(--text-light);
+    display: block;
+    word-break: break-all;
+}
+
+#adminLoginForm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+#adminLoginForm button {
+    width: auto;
+    align-self: flex-start;
+}
+
+#loginMessage {
+    margin-top: var(--spacing-sm);
+    font-size: 0.95rem;
+}
+
+#adminFunctions input {
+    margin-bottom: var(--spacing-sm);
+}
+
+#adminFunctions .action-group {
+    margin-bottom: var(--spacing-md);
+}
+
+#orgsResult {
+    margin-top: var(--spacing-md);
+    color: var(--text-medium);
+}
+
+hr {
+    display: none;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>แผงควบคุมแอดมิน - ระบบบริจาค</title>
+    
+    <link rel="stylesheet" href="admin.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js"></script>
+</head>
+
+<body class="admin-body">
+    <header class="admin-header">
+        <div class="admin-title">🔒 แผงควบคุมผู้ดูแลระบบ (Admin Panel)</div>
+        <a href="home.html" class="back-link">กลับหน้าหลัก (Home)</a>
+    </header>
+    <div class="admin-wrapper">
+        <h2 class="section-title">การจัดการระบบมูลนิธิ (Owner Functions)</h2>
+
+        <div class="control-group admin-connect-status">
+            <button id="connectBtn">Connect Wallet</button>
+            <p id="walletAddress">Wallet: -</p>
+            <p id="adminStatus" style="font-weight: bold; color: yellow; margin-top: 10px;">สถานะ: กำลังรอเชื่อมต่อ...</p>
+        </div>
+        
+        <hr>
+
+        <div id="adminFunctions">
+            
+            <div class="admin-function-box">
+                <h4>➕ เพิ่มมูลนิธิใหม่</h4>
+                <input id="newOrgAddress" placeholder="Org Address (e.g., 0x...)" type="text" class="text-input" disabled>
+                <div class="action-group">
+                    <input id="newOrgName" placeholder="Org Name (ชื่อมูลนิธิ)" type="text" class="text-input" disabled>
+                    <button id="addOrgBtn" class="success-btn" disabled>เพิ่มมูลนิธิ</button>
+                </div>
+                <p id="addOrgMessage" class="message-status"></p>
+            </div>
+
+            <div class="admin-function-box">
+                <h4>➖ ลบมูลนิธิ</h4>
+                <div class="action-group">
+                    <input id="removeOrgAddress" placeholder="Org Address to Remove" type="text" class="text-input" disabled>
+                    <button id="removeOrgBtn" class="danger-btn" disabled>ลบมูลนิธิ</button>
+                </div>
+                <p id="removeOrgMessage" class="message-status"></p>
+            </div>
+            
+            <hr>
+            
+            <div class="admin-function-box">
+                <h4>💸 ถอนเงินเข้า Contract (Withdraw Excess ETH)</h4>
+                <button id="withdrawExcessETHBtn" class="submit-btn" disabled>Withdraw Excess ETH</button>
+                <p id="withdrawMessage" class="message-status"></p>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>

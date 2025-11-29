@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <title>แผงควบคุมองค์กร - ระบบบริจาค</title>
+    
+    <link rel="stylesheet" href="adminorg.css"> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.7.0/dist/ethers.umd.min.js"></script>
+</head>
+
+<body class="org-body">
+    <header class="org-header">
+        <div class="org-title">🏢 แผงควบคุมมูลนิธิ (Organization Panel)</div>
+        <a href="home.html" class="back-link">กลับหน้าหลัก (Home)</a>
+    </header>
+    <div class="org-wrapper">
+        <h2 class="section-title">การจัดการบัญชีและแคมเปญ</h2>
+
+        <div class="control-group org-connect-status">
+            <button id="connectBtn">Connect Wallet</button>
+            <p id="walletAddress">Wallet: -</p>
+            <p id="orgStatus" class="status-message" style="font-weight: bold; margin-top: 10px; color: yellow;">สถานะ: กำลังรอตรวจสอบสิทธิ์...</p>
+        </div>
+        
+        <hr>
+
+        <div id="orgFunctions" style="display:none;">
+            
+            <div class="org-function-box">
+                <h4>➕ สร้างแคมเปญระดมทุนใหม่</h4>
+                <input id="campaignTitle" placeholder="ชื่อแคมเปญ/โครงการ" type="text" class="text-input">
+                <input id="campaignTarget" placeholder="เป้าหมาย (Token Amount)" type="number" class="text-input">
+                <input id="campaignDuration" placeholder="ระยะเวลา (วัน)" type="number" class="text-input">
+                <button id="createCampaignBtn" class="success-btn">สร้างแคมเปญ</button>
+                <p id="campaignMessage" class="message-status"></p>
+            </div>
+            
+            <div class="org-function-box">
+                <h4>💸 ถอนเหรียญบริจาคเข้า Wallet</h4>
+                <p>ยอดเหรียญสะสมของมูลนิธิ: <span id="orgBalance" class="balance-display">- DNT</span></p>
+                <button id="withdrawOrgFundsBtn" class="danger-btn">ถอนเงินบริจาค</button>
+                <p id="withdrawMessage" class="message-status"></p>
+            </div>
+            
+            <hr>
+
+            <div class="org-function-box">
+                <h4>📜 แคมเปญทั้งหมดขององค์กรนี้</h4>
+                <div id="campaignList">
+                    <p>กำลังโหลดรายการแคมเปญ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>
